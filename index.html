@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Real Estate</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Poppins', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="bg-gray-950 text-white py-3 px-4 sm:py-4 sm:px-6 sticky top-0 z-50">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <a href="index.html"><i class="fas fa-home text-orange-500 text-xl sm:text-2xl"></i>
+                    <span class="text-xl sm:text-2xl font-heading font-bold">RealEstate</span></a>
+                </div>
+
+                <div class="hidden md:flex space-x-8 font-body">
+                    <a href="#" class="hover:text-orange-500 transition">Home</a>
+                    <a href="#" class="hover:text-orange-500 transition">Properties</a>
+                    <a href="#" class="hover:text-orange-500 transition">About</a>
+                    <a href="#" class="hover:text-orange-500 transition">Services</a>
+                    <a href="#" class="hover:text-orange-500 transition">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#" class="hidden md:inline-block bg-orange-500 px-4 sm:px-6 py-2 rounded-full hover:bg-orange-600 transition text-sm sm:text-base font-body font-medium">Sign In</a>
+
+                    <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded bg-gray-800 hover:bg-gray-700 transition">
+                        <i id="hamburger-icon" class="fas fa-bars text-white text-lg sm:text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-gray-950">
+                <div class="px-4 sm:px-6 pb-4 sm:pb-6 font-body">
+                    <a href="#" class="block py-2 sm:py-3 border-b border-gray-800 hover:text-orange-500 transition text-sm sm:text-base">Home</a>
+                    <a href="#" class="block py-2 sm:py-3 border-b border-gray-800 hover:text-orange-500 transition text-sm sm:text-base">Properties</a>
+                    <a href="#" class="block py-2 sm:py-3 border-b border-gray-800 hover:text-orange-500 transition text-sm sm:text-base">About</a>
+                    <a href="#" class="block py-2 sm:py-3 border-b border-gray-800 hover:text-orange-500 transition text-sm sm:text-base">Services</a>
+                    <a href="#" class="block py-2 sm:py-3 border-b border-gray-800 hover:text-orange-500 transition text-sm sm:text-base">Contact</a>
+                    <a href="#" class="block w-full sm:w-40 mt-3 sm:mt-4 bg-orange-500 text-white text-center py-2 sm:py-3 rounded-full hover:bg-orange-600 transition font-semibold text-sm sm:text-base">Sign In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[500px] bg-cover bg-center bg-[url('images/project1-banner-img.png')]">
+            <div class="absolute inset-0 bg-black/50"></div>
+
+            <div class="container mx-auto px-4 sm:px-6 h-full flex items-center relative z-10">
+                <div class="text-white max-w-2xl">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3 sm:mb-4 leading-tight">
+                        Affordable Housing <br>In <span class="text-orange-500">Lagos Island</span>
+                    </h1>
+                    <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 leading-relaxed font-body">
+                        Figma ipsum component variant main layer. Text main arrange bold layer. Main export device create outline ellipse auto. Plugin create rotate stroke align star style edit mask.
+                    </p>
+                    <a href="#" class="inline-block bg-orange-500 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-body font-semibold hover:bg-orange-600 transition text-sm sm:text-base">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="bg-white py-6 sm:py-8 -mt-16 sm:-mt-20 relative z-10">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="bg-white rounded-lg shadow-2xl p-4 sm:p-6 max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 font-body">
+                        <input type="text" placeholder="Location" class="border border-gray-300 rounded px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base w-full">
+                        <select class="border border-gray-300 rounded px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base w-full">
+                            <option>Property Type</option>
+                            <option>House</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                        </select>
+                        <select class="border border-gray-300 rounded px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base w-full">
+                            <option>Price Range</option>
+                            <option>$0 - $500k</option>
+                            <option>$500k - $1M</option>
+                            <option>$1M+</option>
+                        </select>
+                        <a href="#" class="bg-orange-500 text-white rounded px-4 sm:px-6 py-2 sm:py-3 font-semibold hover:bg-orange-600 transition text-center text-sm sm:text-base">Search</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Properties -->
+        <section class="py-8 sm:py-12 md:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center mb-6 sm:mb-8 md:mb-12">Featured Properties</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <!-- Property 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <div class="relative">
+                            <img src="images/dream-1.png" alt="Property" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <span class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-orange-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-body font-semibold">Featured</span>
+                        </div>
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-xl sm:text-xl md:text-2xl font-heading font-bold mb-2">$825,000</h3>
+                            <p class="text-gray-600 mb-3 md:mb-4 text-sm sm:text-base font-body">Modern Family Home</p>
+                            <div class="flex flex-wrap items-center text-gray-500 text-xs sm:text-sm gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 font-body">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 2,400 sqft</span>
+                            </div>
+                            <button class="w-full bg-gray-900 text-white py-2 sm:py-2.5 md:py-3 rounded hover:bg-gray-800 transition text-sm sm:text-base font-body" type="button">View Details</button>
+                        </div>
+                    </div>
+                    <!-- Property 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <div class="relative">
+                            <img src="images/dream-2.png" alt="Property" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <span class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-orange-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-body font-semibold">Featured</span>
+                        </div>
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-xl sm:text-xl md:text-2xl font-heading font-bold mb-2">$1,200,000</h3>
+                            <p class="text-gray-600 mb-3 md:mb-4 text-sm sm:text-base font-body">Luxury Villa</p>
+                            <div class="flex flex-wrap items-center text-gray-500 text-xs sm:text-sm gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 font-body">
+                                <span><i class="fas fa-bed"></i> 5 Beds</span>
+                                <span><i class="fas fa-bath"></i> 4 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 3,200 sqft</span>
+                            </div>
+                            <button class="w-full bg-gray-900 text-white py-2 sm:py-2.5 md:py-3 rounded hover:bg-gray-800 transition text-sm sm:text-base font-body" type="button">View Details</button>
+                        </div>
+                    </div>
+                    <!-- Property 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <div class="relative">
+                            <img src="images/dream-3.png" alt="Property" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <span class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 bg-orange-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-body font-semibold">Featured</span>
+                        </div>
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-xl sm:text-xl md:text-2xl font-heading font-bold mb-2">$675,000</h3>
+                            <p class="text-gray-600 mb-3 md:mb-4 text-sm sm:text-base font-body">Contemporary Apartment</p>
+                            <div class="flex flex-wrap items-center text-gray-500 text-xs sm:text-sm gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4 font-body">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 1,800 sqft</span>
+                            </div>
+                            <button class="w-full bg-gray-900 text-white py-2 sm:py-2.5 md:py-3 rounded hover:bg-gray-800 transition text-sm sm:text-base font-body" type="button">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-10 sm:py-12 md:py-16 bg-orange-500 text-white">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+                    <div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-1 sm:mb-2">1,200+</div>
+                        <div class="text-sm sm:text-base md:text-lg font-body">Properties Listed</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-1 sm:mb-2">850+</div>
+                        <div class="text-sm sm:text-base md:text-lg font-body">Happy Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-1 sm:mb-2">50+</div>
+                        <div class="text-sm sm:text-base md:text-lg font-body">Expert Agents</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-1 sm:mb-2">15+</div>
+                        <div class="text-sm sm:text-base md:text-lg font-body">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-8 sm:py-12 md:py-16">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center mb-2 sm:mb-3 md:mb-4">How It Works</h2>
+                <p class="text-center text-gray-600 mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto text-sm sm:text-base px-4 font-body">Find your dream property in three simple steps</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-12">
+                    <div class="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer text-center">
+                        <div class="bg-orange-100 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-search text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold mb-2">Search Property</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm md:text-base font-body">Browse through our extensive collection of premium properties</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer text-center">
+                        <div class="bg-orange-100 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-calendar-check text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold mb-2">Schedule Visit</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm md:text-base font-body">Book a viewing with our expert agents at your convenience</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer text-center">
+                        <div class="bg-orange-100 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-key text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold mb-2">Get Your Keys</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm md:text-base font-body">Complete the process and move into your dream home</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Team -->
+        <section id="meet-team" class="py-10 sm:py-12 md:py-16">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-1 sm:mb-2">Meet Our Team</h2>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Expert agents ready to help you find the perfect home</p>
+                    </div>
+                    <div class="hidden md:flex items-center gap-2">
+                        <button id="team-prev" aria-label="Previous" class="inline-flex items-center justify-center w-10 h-10 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 text-xl">‹</button>
+                        <button id="team-next" aria-label="Next" class="inline-flex items-center justify-center w-10 h-10 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 text-xl">›</button>
+                    </div>
+                </div>
+
+                <!-- horizontal slider -->
+                <div id="team-slider" class="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth py-4 px-1 hide-scrollbar">
+                    <!-- card 1 -->
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-1.jpg" alt="John Smith" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">John Smith</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Senior Agent</p>
+                    </div>
+
+                    <!-- card 2 -->
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-2.jpg" alt="Sarah Johnson" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Sarah Johnson</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Property Expert</p>
+                    </div>
+
+                    <!-- card 3 -->
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-3.jpg" alt="Michael Brown" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Michael Brown</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Sales Manager</p>
+                    </div>
+
+                    <!-- card 4 -->
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-4.jpg" alt="Emily Davis" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Emily Davis</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Lead Consultant</p>
+                    </div>
+
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-1.jpg" alt="John Smith" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">John Smith</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Senior Agent</p>
+                    </div>
+
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-2.jpg" alt="Sarah Johnson" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Sarah Johnson</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Property Expert</p>
+                    </div>
+
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-3.jpg" alt="Michael Brown" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Michael Brown</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Sales Manager</p>
+                    </div>
+
+                    <div class="snap-start flex-shrink-0 w-56 sm:w-60 md:w-64 lg:w-72 bg-white rounded-lg p-4 sm:p-5 md:p-6 text-center shadow">
+                        <img src="images/agent-4.jpg" alt="Emily Davis" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 sm:mb-4 object-cover">
+                        <h3 class="text-base sm:text-lg md:text-xl font-heading font-bold">Emily Davis</h3>
+                        <p class="text-gray-600 text-sm sm:text-base font-body">Lead Consultant</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex items-center justify-center gap-2 md:hidden">
+                    <button class="w-2 h-2 rounded-full bg-gray-400"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-400/60"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-400/60"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-400/60"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties by Location -->
+        <section class="py-8 sm:py-12 md:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center mb-6 sm:mb-8 md:mb-12">Latest Properties</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <img src="images/housh-1.png" alt="Property" class="w-full h-40 sm:h-44 md:h-48 object-cover">
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-lg sm:text-xl font-heading font-bold mb-2">$550,000</h3>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base font-body">Suburban House</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-body"><i class="fas fa-bed"></i> 3 Beds • <i class="fas fa-bath"></i> 2 Baths • <i class="fas fa-ruler-combined"></i> 1,600 sqft</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <img src="images/housh-2.png" alt="Property" class="w-full h-40 sm:h-44 md:h-48 object-cover">
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-lg sm:text-xl font-heading font-bold mb-2">$725,000</h3>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base font-body">Downtown Condo</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-body"><i class="fas fa-bed"></i> 2 Beds • <i class="fas fa-bath"></i> 2 Baths • <i class="fas fa-ruler-combined"></i> 1,400 sqft</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                        <img src="images/housh-3.png" alt="Property" class="w-full h-40 sm:h-44 md:h-48 object-cover">
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <h3 class="text-lg sm:text-xl font-heading font-bold mb-2">$950,000</h3>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base font-body">Lakeside Villa</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-body"><i class="fas fa-bed"></i> 4 Beds • <i class="fas fa-bath"></i> 3 Baths • <i class="fas fa-ruler-combined"></i> 2,800 sqft</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-10 sm:py-12 md:py-16 bg-gray-900 text-white">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 sm:mb-4">Subscribe to Our Newsletter</h2>
+                <p class="mb-6 sm:mb-8 text-gray-300 text-sm sm:text-base px-4 font-body">Get the latest property updates delivered to your inbox</p>
+                <div class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4 px-4">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-md text-gray-900 text-sm sm:text-base font-body">
+                    <button class="bg-orange-500 px-6 sm:px-8 py-2 sm:py-3 rounded-md font-body font-semibold hover:bg-orange-600 transition text-sm sm:text-base whitespace-nowrap">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 sm:py-10 md:py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div>
+                    <a href="#"><i class="fas fa-home text-orange-500 text-xl sm:text-2xl"></i>
+                    <span class="text-xl sm:text-2xl font-heading font-bold">RealEstate</span></a>
+                    <p class="text-gray-400 text-sm sm:text-base font-body">Your trusted partner in finding the perfect property</p>
+                </div>
+                <div>
+                    <div class="font-heading font-bold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</div>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base font-body">
+                        <li><a href="#" class="hover:text-orange-500 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Properties</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Services</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="font-heading font-bold mb-3 sm:mb-4 text-sm sm:text-base">Services</div>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base font-body">
+                        <li><a href="#" class="hover:text-orange-500 transition">Buy Property</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Sell Property</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Rent Property</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Property Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="font-heading font-bold mb-3 sm:mb-4 text-sm sm:text-base">Contact Info</div>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base font-body">
+                        <li>
+                            <a href="https://maps.google.com/?q=123+Real+Estate+Ave" target="_blank" class="hover:text-orange-500 transition">
+                                <i class="fas fa-map-marker-alt text-orange-500"></i> 123 Real Estate Ave
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:(555) 123-4567" class="hover:text-orange-500 transition">
+                                <i class="fas fa-phone text-orange-500"></i> (555) 123-4567
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@realestate.com" class="hover:text-orange-500 transition">
+                                <i class="fas fa-envelope text-orange-500"></i> info@realestate.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm font-body">
+                <p>&copy; 2025 <a href="index.html" class="hover:text-orange-500">RealEstate</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // mobile menu toggle with icon change
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('hamburger-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const expanded = menu.classList.contains('hidden') ? 'false' : 'true';
+            btn.setAttribute('aria-expanded', expanded);
+
+            // toggle icon between bars and times (X)
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // close mobile menu when a link is clicked
+        menu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Team slider navigation
+        const slider = document.getElementById('team-slider');
+        const prevBtn = document.getElementById('team-prev');
+        const nextBtn = document.getElementById('team-next');
+
+        if (prevBtn && nextBtn && slider) {
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
+    </script>
+
+</body>
+</html>
